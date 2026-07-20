@@ -8,9 +8,9 @@
       name="description"
       content="面向人工短线和波段观察的A股趋势选股网站原型，聚焦平滑上移趋势、分时承接和风险复核。"
     />
-    <link rel="stylesheet" href="styles.css?v=20260720-moderate-pool-2" />
+    <link rel="stylesheet" href="styles.css?v=20260720-fulong-strategy" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script defer src="app.js?v=20260720-moderate-pool-2"></script>
+    <script defer src="app.js?v=20260720-fulong-strategy"></script>
   </head>
   <body>
     <header class="topbar">
@@ -81,46 +81,77 @@
       <section class="workspace">
         <div class="market-strip">
           <div>
-            <span class="strip-label">当前用途</span>
-            <strong>上午卖、下午买的人工短线观察</strong>
+            <span class="strip-label">第一层</span>
+            <strong>先看板块/概念资金流入</strong>
           </div>
           <div>
-            <span class="strip-label">核心形态</span>
-            <strong>均线平滑上移 + 分时承接</strong>
+            <span class="strip-label">第二层</span>
+            <strong>从板块中选中军或龙头</strong>
           </div>
           <div>
-            <span class="strip-label">边界</span>
-            <strong>不做回测，不做自动交易</strong>
+            <span class="strip-label">尾盘确认</span>
+            <strong>伏龙出渊 + 分时重心上移</strong>
           </div>
         </div>
 
         <section class="signal-board" aria-label="策略信号灯">
           <div class="signal-copy">
-            <p class="eyebrow">AI-like manual filter</p>
-            <h2>把“胜率焦虑”拆成可复核条件</h2>
+            <p class="eyebrow">Fulong manual filter</p>
+            <h2>伏龙出渊：先板块，后个股，尾盘确认</h2>
             <p>
-              免费 API 只能提高刷新速度，不能直接提高胜率。这里把短线交易拆成市场环境、板块强度、平滑上移、分时承接和风险退出五个信号，由你盘中人工确认。
+              先确认板块和概念资金流入，并判断次日是否有延续性；再从板块里选中军或龙头；最后到尾盘复核承接、分时重心、放量和日线均线位置。
             </p>
           </div>
           <div class="signal-lights">
-            <div><span class="state-dot"></span><strong>可观察</strong><small>趋势未破</small></div>
-            <div><span class="state-dot amber-dot"></span><strong>等确认</strong><small>尾盘回流</small></div>
-            <div><span class="state-dot red-dot"></span><strong>先回避</strong><small>放量破位</small></div>
+            <div><span class="state-dot"></span><strong>板块强</strong><small>资金流入</small></div>
+            <div><span class="state-dot amber-dot"></span><strong>等尾盘</strong><small>14:30后确认</small></div>
+            <div><span class="state-dot red-dot"></span><strong>不出手</strong><small>形态不标准</small></div>
+          </div>
+        </section>
+
+        <section class="workflow-board" aria-label="伏龙出渊战法流程">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Fulong setup</p>
+              <h2>战法执行流程</h2>
+            </div>
+          </div>
+          <div class="workflow-grid">
+            <article>
+              <span>01</span>
+              <h3>板块/概念</h3>
+              <p>只看资金流入且次日有延续逻辑的方向，弱板块不做个股。</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>中军/龙头</h3>
+              <p>从强板块中找成交额充足、辨识度高、趋势更强的股票。</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>日线形态</h3>
+              <p>优先 5/10 日线平滑上移，最好不破 20 日线或围绕均线强承接。</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>尾盘买点</h3>
+              <p>14:30 后确认分时重心上移、承接强、当日放量，再考虑 14:40 附近。</p>
+            </article>
           </div>
         </section>
 
         <section class="explain-board" aria-label="选股说明">
           <div>
             <p class="eyebrow">Always visible notes</p>
-            <h2>价格适中股票池说明</h2>
+            <h2>伏龙在渊观察说明</h2>
             <p>
-              当前股票池优先选择约 15-60 元区间的 `60`、`00`、`30` 开头 A 股，剔除明显高价标的。价格适中不等于更安全，仍要看板块强度、成交额、均线平滑上移和下午分时承接。
+              当前股票池优先选择约 15-60 元区间的 `60`、`00`、`30` 开头 A 股，剔除明显高价标的。真正的第一步不是个股，而是板块和概念资金是否流入、次日是否有延续性。
             </p>
           </div>
           <ul class="explain-list">
-            <li><strong>主观察池：</strong>15-40 元，优先看成交额和趋势延续。</li>
-            <li><strong>弹性观察池：</strong>40-60 元，只做板块共振和强承接。</li>
-            <li><strong>手工纪律：</strong>上午冲高不强先卖，下午缩量回踩不破再看。</li>
+            <li><strong>板块先行：</strong>资金流入、概念强度、次日延续性都要通过。</li>
+            <li><strong>个股选择：</strong>优先中军或龙头，成交额要足，趋势要比板块内多数股票强。</li>
+            <li><strong>尾盘纪律：</strong>不追盘中波动，只在承接强、分时重心上移、形态标准时考虑。</li>
           </ul>
         </section>
 
@@ -179,11 +210,11 @@
           <p id="detailTech"></p>
         </section>
         <section class="detail-block">
-          <h3>海外业务</h3>
+          <h3>板块概念</h3>
           <p id="detailOverseas"></p>
         </section>
         <section class="detail-block">
-          <h3>毛利率</h3>
+          <h3>量价</h3>
           <p id="detailMargin"></p>
         </section>
         <section class="detail-block">
