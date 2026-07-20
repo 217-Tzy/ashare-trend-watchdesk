@@ -268,7 +268,8 @@ h3 {
 .trend-lab,
 .table-area,
 .signal-board,
-.explain-board {
+.explain-board,
+.workflow-board {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -294,7 +295,7 @@ h3 {
 
 .segmented {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   padding: 3px;
   background: var(--panel-soft);
   border: 1px solid var(--line);
@@ -309,6 +310,7 @@ h3 {
   background: transparent;
   color: var(--muted);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .segment.active {
@@ -410,6 +412,11 @@ h3 {
   padding: 18px;
 }
 
+.workflow-board {
+  margin-bottom: 16px;
+  padding: 18px;
+}
+
 .signal-copy h2 {
   margin-bottom: 8px;
 }
@@ -447,6 +454,45 @@ h3 {
 
 .explain-list strong {
   color: var(--text);
+}
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.workflow-grid article {
+  min-height: 154px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.workflow-grid span {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: var(--gradient);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.workflow-grid h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.workflow-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
 }
 
 .signal-lights {
@@ -721,6 +767,10 @@ tbody tr.active-row {
     grid-template-columns: 1fr;
   }
 
+  .workflow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .login-like-fields {
     grid-template-columns: 1fr 1fr;
   }
@@ -754,9 +804,14 @@ tbody tr.active-row {
     font-size: 21px;
   }
 
+  .segment {
+    font-size: 14px;
+  }
+
   .layout,
   .market-strip,
   .trend-grid,
+  .workflow-grid,
   .login-like-fields,
   .signal-lights {
     grid-template-columns: 1fr;
