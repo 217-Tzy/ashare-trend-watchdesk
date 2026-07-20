@@ -1,0 +1,47 @@
+# A股短线趋势观察台
+
+这是一个纯静态网站原型，用于人工短线和波段观察，不包含回测、自动交易或量化交易模型。
+
+## 本地打开
+
+直接双击 `index.html` 可以打开。若要模拟线上环境：
+
+```powershell
+python -m http.server 8080
+```
+
+然后访问 `http://127.0.0.1:8080/`。
+
+## 修改股票池
+
+股票池在 `app.js` 的 `stocks` 数组中。后续可以继续改：
+
+- 股票代码和名称
+- 平滑上移趋势样例 `trend`
+- 技术、海外业务、毛利率、资金说明
+- 手工观察提示
+- 超短线、波段、观察池分层
+
+## 发布到 GitHub Pages
+
+现阶段目录还不是 Git 仓库。确认内容后可以这样发布：
+
+```powershell
+git init
+git add index.html styles.css app.js README.md
+git commit -m "Create A-share trend watchdesk"
+gh repo create ashare-trend-watchdesk --public --source . --push
+gh repo edit --enable-pages
+```
+
+如果 GitHub CLI 的 Pages 开启命令不可用，也可以到 GitHub 仓库页面：
+
+`Settings -> Pages -> Build and deployment -> Deploy from a branch -> main / root`
+
+启用后，网站地址通常是：
+
+`https://你的用户名.github.io/ashare-trend-watchdesk/`
+
+## 数据边界
+
+北向资金近 10 日连续买入需要在券商、东方财富或同花顺等日频页面手工复核。HKEX 自 2024-08-19 起只按季度披露北向持股，不能作为近 10 日连续买入证明。
