@@ -267,7 +267,8 @@ h3 {
 .detail-panel,
 .trend-lab,
 .table-area,
-.signal-board {
+.signal-board,
+.explain-board {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -401,16 +402,51 @@ h3 {
   min-width: 0;
 }
 
+.explain-board {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-bottom: 16px;
+  padding: 18px;
+}
+
 .signal-copy h2 {
   margin-bottom: 8px;
 }
 
-.signal-copy p:last-child {
+.signal-copy p:last-child,
+.explain-board p {
   max-width: 780px;
   margin-bottom: 0;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.7;
+}
+
+.explain-board h2 {
+  margin-bottom: 8px;
+}
+
+.explain-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.explain-list li {
+  padding: 12px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.explain-list strong {
+  color: var(--text);
 }
 
 .signal-lights {
@@ -680,7 +716,8 @@ tbody tr.active-row {
   }
 
   .status-card,
-  .signal-board {
+  .signal-board,
+  .explain-board {
     grid-template-columns: 1fr;
   }
 
