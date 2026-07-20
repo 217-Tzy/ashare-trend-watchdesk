@@ -8,9 +8,9 @@
       name="description"
       content="面向人工短线和波段观察的A股趋势选股网站原型，聚焦平滑上移趋势、分时承接和风险复核。"
     />
-    <link rel="stylesheet" href="styles.css?v=20260720-close-screen" />
+    <link rel="stylesheet" href="styles.css?v=20260720-light-fulong" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script defer src="app.js?v=20260720-close-screen"></script>
+    <script defer src="app.js?v=20260720-light-fulong"></script>
   </head>
   <body>
     <header class="topbar">
@@ -90,22 +90,22 @@
           </div>
           <div>
             <span class="strip-label">尾盘确认</span>
-            <strong>伏龙出渊 + 分时重心上移</strong>
+            <strong>轻伏龙 + 分时重心上移</strong>
           </div>
         </div>
 
         <section class="signal-board" aria-label="策略信号灯">
           <div class="signal-copy">
             <p class="eyebrow">Fulong manual filter</p>
-            <h2>伏龙出渊：先板块，后个股，尾盘确认</h2>
+            <h2>高切低阶段：轻伏龙优先，尾盘确认</h2>
             <p>
-              先确认板块和概念资金流入，并判断次日是否有延续性；再从板块里选中军或龙头；最后到尾盘复核承接、分时重心、放量和日线均线位置。
+              当前主线转换、高切低时，30/60 日线不再作为硬性门槛，只作为加分项。先确认板块和概念资金流入，再选中军、龙头或低价弹性核心，最后到尾盘复核承接、分时重心、放量和 5/10/20 日线位置。
             </p>
           </div>
           <div class="signal-lights">
             <div><span class="state-dot"></span><strong>板块强</strong><small>资金流入</small></div>
-            <div><span class="state-dot amber-dot"></span><strong>等尾盘</strong><small>14:30后确认</small></div>
-            <div><span class="state-dot red-dot"></span><strong>不出手</strong><small>形态不标准</small></div>
+            <div><span class="state-dot amber-dot"></span><strong>轻伏龙</strong><small>放宽30/60</small></div>
+            <div><span class="state-dot red-dot"></span><strong>不出手</strong><small>承接不强</small></div>
           </div>
         </section>
 
@@ -130,7 +130,7 @@
             <article>
               <span>03</span>
               <h3>日线形态</h3>
-              <p>优先 5/10 日线平滑上移，最好不破 20 日线或围绕均线强承接。</p>
+              <p>当前阶段优先 5/10 日线平滑上移，不跌破或快速收复 20 日线；30/60 日线改为加分项。</p>
             </article>
             <article>
               <span>04</span>
@@ -140,19 +140,45 @@
           </div>
         </section>
 
+        <section class="mode-board" aria-label="标准伏龙和轻伏龙规则">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Rule switch</p>
+              <h2>双模式规则</h2>
+            </div>
+          </div>
+          <div class="mode-grid">
+            <article>
+              <span>标准</span>
+              <h3>标准伏龙</h3>
+              <p>开盘弱于 5/10 日线但守住 30/60 日线，收盘重新站回 5/10 日线。适合趋势稳定、波段容错更高的环境。</p>
+            </article>
+            <article>
+              <span>当前</span>
+              <h3>轻伏龙</h3>
+              <p>高切低阶段放宽 30/60 日线，只要求板块强、收复或不破 20 日线、5/10 日线向上、尾盘承接强。</p>
+            </article>
+            <article>
+              <span>禁止</span>
+              <h3>不能放宽</h3>
+              <p>板块资金流入、次日延续逻辑、尾盘重心上移、放量不长上影，这四项不能因为放宽 30/60 日线而降低标准。</p>
+            </article>
+          </div>
+        </section>
+
         <section class="explain-board" aria-label="选股说明">
           <div>
             <p class="eyebrow">Always visible notes</p>
             <h2>伏龙在渊观察说明</h2>
             <p>
-              当前股票池按 2026-07-20 收盘人工筛选，优先选择价格适中、成交活跃的 60、00、30 开头 A 股，剔除明显高价标的。真正的第一步不是个股，而是板块和概念资金是否流入、次日是否有延续性。
+              当前股票池按 2026-07-20 收盘人工筛选，适配主线转换和高切低阶段。30/60 日线不再一票否决，但必须用板块强度、20 日线、5/10 日线、尾盘承接和放量质量来替代过滤。
             </p>
             <p id="screenMetaText" class="screen-meta"></p>
           </div>
           <ul class="explain-list">
-            <li><strong>板块先行：</strong>资金流入、概念强度、次日延续性都要通过。</li>
-            <li><strong>个股选择：</strong>优先中军或龙头，成交额要足，趋势要比板块内多数股票强。</li>
-            <li><strong>尾盘纪律：</strong>不追盘中波动，只在承接强、分时重心上移、形态标准时考虑。</li>
+            <li><strong>板块先行：</strong>只做资金流入且有延续逻辑的方向，弱板块不做个股。</li>
+            <li><strong>轻伏龙条件：</strong>可以放宽 30/60 日线，但 20 日线、5/10 日线和尾盘承接必须过关。</li>
+            <li><strong>尾盘纪律：</strong>不追盘中波动，只在分时重心上移、承接强、放量不长上影时考虑。</li>
           </ul>
         </section>
 
