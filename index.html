@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A股短线趋势观察台</title>
+    <title>研选观察台 - A股短线趋势助手</title>
     <meta
       name="description"
       content="面向人工短线和波段观察的A股趋势选股网站原型，聚焦平滑上移趋势、分时承接和风险复核。"
@@ -14,9 +14,14 @@
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Manual A-share watchdesk</p>
-        <h1>A股短线趋势观察台</h1>
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">
+          <i data-lucide="activity"></i>
+        </div>
+        <div>
+          <h1>研选观察台</h1>
+          <p class="brand-subtitle">AI 风格辅助面板 · 人工短线趋势复核</p>
+        </div>
       </div>
       <nav class="top-actions" aria-label="页面工具">
         <button class="icon-button" id="refreshView" type="button" title="重置筛选">
@@ -29,6 +34,37 @@
     </header>
 
     <main class="layout">
+      <section class="status-card" aria-label="系统状态">
+        <div class="status-head">
+          <div class="brand-mark small" aria-hidden="true">
+            <i data-lucide="scan-line"></i>
+          </div>
+          <div>
+            <p class="eyebrow">Signal console</p>
+            <h2>短线趋势复核中</h2>
+          </div>
+        </div>
+        <div class="system-state">
+          <span class="state-dot"></span>
+          <span>系统运行正常 · 数据以人工维护和盘中复核为准</span>
+        </div>
+        <div class="login-like-fields" aria-label="策略边界">
+          <div class="field-chip">
+            <i data-lucide="smartphone"></i>
+            <span>上午卖 · 下午买 · T+1滚动</span>
+          </div>
+          <div class="field-chip">
+            <i data-lucide="shield-check"></i>
+            <span>不承诺胜率 · 不自动交易</span>
+          </div>
+        </div>
+        <a class="primary-gradient" href="#stockTable">
+          <span>进入股票池</span>
+          <i data-lucide="arrow-down"></i>
+        </a>
+        <p class="fineprint">本页面用于学习和手工观察，不构成投资建议。</p>
+      </section>
+
       <aside class="filter-panel" aria-label="筛选条件">
         <section class="panel-section">
           <h2>交易模式</h2>
@@ -88,6 +124,21 @@
             <strong>不做回测，不做自动交易</strong>
           </div>
         </div>
+
+        <section class="signal-board" aria-label="策略信号灯">
+          <div class="signal-copy">
+            <p class="eyebrow">AI-like manual filter</p>
+            <h2>把“胜率焦虑”拆成可复核条件</h2>
+            <p>
+              免费 API 只能提高刷新速度，不能直接提高胜率。这里把短线交易拆成市场环境、板块强度、平滑上移、分时承接和风险退出五个信号，由你盘中人工确认。
+            </p>
+          </div>
+          <div class="signal-lights">
+            <div><span class="state-dot"></span><strong>可观察</strong><small>趋势未破</small></div>
+            <div><span class="state-dot amber-dot"></span><strong>等确认</strong><small>尾盘回流</small></div>
+            <div><span class="state-dot red-dot"></span><strong>先回避</strong><small>放量破位</small></div>
+          </div>
+        </section>
 
         <section class="trend-lab" aria-label="平滑上移趋势图">
           <div class="section-title">
