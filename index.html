@@ -8,9 +8,9 @@
       name="description"
       content="面向人工短线和波段观察的A股趋势选股网站原型，聚焦平滑上移趋势、分时承接和风险复核。"
     />
-    <link rel="stylesheet" href="styles.css?v=20260720-fulong-strategy" />
+    <link rel="stylesheet" href="styles.css?v=20260720-close-screen" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script defer src="app.js?v=20260720-fulong-strategy"></script>
+    <script defer src="app.js?v=20260720-close-screen"></script>
   </head>
   <body>
     <header class="topbar">
@@ -145,8 +145,9 @@
             <p class="eyebrow">Always visible notes</p>
             <h2>伏龙在渊观察说明</h2>
             <p>
-              当前股票池优先选择约 15-60 元区间的 `60`、`00`、`30` 开头 A 股，剔除明显高价标的。真正的第一步不是个股，而是板块和概念资金是否流入、次日是否有延续性。
+              当前股票池按 2026-07-20 收盘人工筛选，优先选择价格适中、成交活跃的 60、00、30 开头 A 股，剔除明显高价标的。真正的第一步不是个股，而是板块和概念资金是否流入、次日是否有延续性。
             </p>
+            <p id="screenMetaText" class="screen-meta"></p>
           </div>
           <ul class="explain-list">
             <li><strong>板块先行：</strong>资金流入、概念强度、次日延续性都要通过。</li>
@@ -175,6 +176,7 @@
             <div>
               <p class="eyebrow">Stock list</p>
               <h2>股票池</h2>
+              <p id="tableMetaText" class="toolbar-note"></p>
             </div>
             <label class="search-box">
               <i data-lucide="search"></i>
