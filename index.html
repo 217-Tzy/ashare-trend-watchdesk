@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A股短线趋势观察台</title>
+    <meta
+      name="description"
+      content="面向人工短线和波段观察的A股趋势选股网站原型，聚焦平滑上移趋势、分时承接和风险复核。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Manual A-share watchdesk</p>
+        <h1>A股短线趋势观察台</h1>
+      </div>
+      <nav class="top-actions" aria-label="页面工具">
+        <button class="icon-button" id="refreshView" type="button" title="重置筛选">
+          <i data-lucide="rotate-ccw"></i>
+        </button>
+        <a class="icon-button" href="#deploy" title="GitHub Pages 部署">
+          <i data-lucide="upload-cloud"></i>
+        </a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <aside class="filter-panel" aria-label="筛选条件">
+        <section class="panel-section">
+          <h2>交易模式</h2>
+          <div class="segmented" role="tablist" aria-label="交易模式">
+            <button class="segment active" data-mode="intraday" type="button">超短线</button>
+            <button class="segment" data-mode="swing" type="button">波段</button>
+            <button class="segment" data-mode="watch" type="button">观察</button>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2>平滑上移</h2>
+          <label class="toggle-line">
+            <input id="smoothOnly" type="checkbox" checked />
+            <span>只看均线顺排/缓慢抬升</span>
+          </label>
+          <label class="toggle-line">
+            <input id="liquidOnly" type="checkbox" checked />
+            <span>成交额充足</span>
+          </label>
+          <label class="toggle-line">
+            <input id="riskCleanOnly" type="checkbox" />
+            <span>剔除高波动/破位风险</span>
+          </label>
+        </section>
+
+        <section class="panel-section">
+          <h2>代码范围</h2>
+          <div class="locked-rule">
+            <i data-lucide="lock-keyhole"></i>
+            <span>沪市主板 60xxxx / 603xxx / 601xxx</span>
+          </div>
+          <div class="locked-rule">
+            <i data-lucide="ban"></i>
+            <span>排除 ST、退市、120 日内新股</span>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2>下午买前复核</h2>
+          <div id="buyChecklist" class="checklist"></div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <div class="market-strip">
+          <div>
+            <span class="strip-label">当前用途</span>
+            <strong>上午卖、下午买的人工短线观察</strong>
+          </div>
+          <div>
+            <span class="strip-label">核心形态</span>
+            <strong>均线平滑上移 + 分时承接</strong>
+          </div>
+          <div>
+            <span class="strip-label">边界</span>
+            <strong>不做回测，不做自动交易</strong>
+          </div>
+        </div>
+
+        <section class="trend-lab" aria-label="平滑上移趋势图">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Smooth rising trend</p>
+              <h2>平滑上移候选</h2>
+            </div>
+            <div class="legend">
+              <span><b class="dot green"></b>承接良好</span>
+              <span><b class="dot amber"></b>等待确认</span>
+              <span><b class="dot red"></b>高风险</span>
+            </div>
+          </div>
+          <div id="trendCards" class="trend-grid"></div>
+        </section>
+
+        <section class="table-area" aria-label="股票列表">
+          <div class="table-toolbar">
+            <div>
+              <p class="eyebrow">Stock list</p>
+              <h2>股票池</h2>
+            </div>
+            <label class="search-box">
+              <i data-lucide="search"></i>
+              <input id="searchInput" type="search" placeholder="搜索代码或名称" />
+            </label>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>代码</th>
+                  <th>名称</th>
+                  <th>匹配理由</th>
+                  <th>风险</th>
+                  <th>操作观察</th>
+                </tr>
+              </thead>
+              <tbody id="stockTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <aside class="detail-panel" aria-label="个股详情">
+        <section>
+          <p class="eyebrow">Selected stock</p>
+          <h2 id="detailName">选择一只股票</h2>
+          <p id="detailIntro" class="muted">点击股票池或趋势卡片查看人工观察要点。</p>
+        </section>
+
+        <section class="detail-block">
+          <h3>技术</h3>
+          <p id="detailTech"></p>
+        </section>
+        <section class="detail-block">
+          <h3>海外业务</h3>
+          <p id="detailOverseas"></p>
+        </section>
+        <section class="detail-block">
+          <h3>毛利率</h3>
+          <p id="detailMargin"></p>
+        </section>
+        <section class="detail-block">
+          <h3>资金</h3>
+          <p id="detailCapital"></p>
+        </section>
+
+        <section class="detail-block">
+          <h3>手工观察</h3>
+          <ul id="detailTips" class="tip-list"></ul>
+        </section>
+
+        <section id="deploy" class="deploy-box">
+          <h3>GitHub Pages</h3>
+          <p>当前是静态站点，后续确认样式和字段后，可以直接推到 GitHub Pages 给别人打开。</p>
+        </section>
+      </aside>
+    </main>
+  </body>
+</html>
