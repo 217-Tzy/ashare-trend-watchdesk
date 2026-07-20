@@ -17,6 +17,7 @@ python -m http.server 8080
 股票池在 `app.js` 的 `stocks` 数组中。后续可以继续改：
 
 - 股票代码和名称
+- 代码范围：`60`、`00`、`30` 开头 A 股
 - 平滑上移趋势样例 `trend`
 - 技术、海外业务、毛利率、资金说明
 - 手工观察提示
@@ -24,7 +25,11 @@ python -m http.server 8080
 
 ## 发布到 GitHub Pages
 
-现阶段目录还不是 Git 仓库。确认内容后可以这样发布：
+当前已经发布到 GitHub Pages：
+
+`https://217-tzy.github.io/ashare-trend-watchdesk/`
+
+如需重新发布到其他仓库，可以这样操作：
 
 ```powershell
 git init
